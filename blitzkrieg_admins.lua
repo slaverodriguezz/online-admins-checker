@@ -1,9 +1,9 @@
 script_name("Online Admins Checker")
 script_author("ChatGPT")
-script_version("1.2")
+script_version("1.3")
 
 require "lib.moonloader"
-local script_vers = 1.2
+local script_vers = 1.3
 local update_url = "https://raw.githubusercontent.com/slaverodriguezz/online-admins-checker/refs/heads/main/blitzkrieg_admins.lua"
 local update_path = getWorkingDirectory() .. "\\moonloader\\" .. thisScript().name
 
@@ -38,6 +38,7 @@ local admins = {
     ["Michael_Rojas"] = 6,
     ["Marco_Mazzini"] = 5,
     ["Edward_Thawne"] = 5,
+    ["Lauren_Vandom"] = 5,
     ["Mayu_Sakura"] = 5,
     ["Donatello_Ross"] = 5,
     ["Cody_Flatcher"] = 5,
