@@ -3,6 +3,12 @@ script_author("ChatGPT")
 script_version("1.2")
 
 require "lib.moonloader"
+local script_vers = 1.2
+local update_url = "https://raw.githubusercontent.com/slaverodriguezz/online-admins-checker/refs/heads/main/blitzkrieg_admins.lua"
+local update_path = getWorkingDirectory() .. "\\moonloader\\" .. thisScript().name
+
+
+
 local sampev = require "lib.samp.events"
 local textColor = "{F5DEB3}"
 
@@ -62,10 +68,53 @@ local admins = {
     ["Kasper_Whiter"] = 3
 }
 
+
+
+function checkUpdate()
+    lua_thread.create(function()
+        wait(5000) -- ждём загрузки SA-MP
+        local status, response = pcall(function()
+            return downloadUrlToMemory(update_url)
+        end)
+
+        if status and response then
+            local new_version = tonumber(response:match('script_version%("(.-)"%)'))
+
+            if new_version and new_version > script_vers then
+                sampAddChatMessage(
+                    "{3A4FFC}[blitzkrieg]{FFFFFF} Найдена новая версия (" ..
+                    new_version .. "), обновляю...", -1
+                )
+
+                downloadUrlToFile(update_url, update_path, function(id, status)
+                    if status == 6 then
+                        sampAddChatMessage(
+                            "{3A4FFC}[blitzkrieg]{00FF00} Скрипт обновлён. Перезагрузи MoonLoader (/reloadall)",
+                            -1
+                        )
+                        thisScript():reload()
+                    end
+                end)
+            end
+        end
+    end)
+end
+
+
+
+
+
+
 function main()
     repeat wait(0) until isSampAvailable()
+
+    checkUpdate()
+
     sampRegisterChatCommand("badmins", cmd_badmins)
-    sampAddChatMessage("{3A4FFC}[blitzkrieg] {F5DEB3}admins checker loaded | author: {3A4FFC}slave_rodriguez", -1)
+    sampAddChatMessage(
+        "{3A4FFC}[blitzkrieg] {F5DEB3}admins checker loaded | author: {3A4FFC}slave_rodriguez",
+        -1
+    )
     wait(-1)
 end
 
