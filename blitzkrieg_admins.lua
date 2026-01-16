@@ -1,9 +1,9 @@
 script_name("Online Admins Checker")
 script_author("ChatGPT")
-script_version("1.3")
+script_version("1.4")
 
 require "lib.moonloader"
-local script_vers = 1.3
+local script_vers = 1.4
 local update_url = "https://raw.githubusercontent.com/slaverodriguezz/online-admins-checker/refs/heads/main/blitzkrieg_admins.lua"
 local update_path = getWorkingDirectory() .. "\\moonloader\\" .. thisScript().name
 
@@ -15,7 +15,7 @@ local textColor = "{F5DEB3}"
 
 local admins = {
     ["Jonny_Wilson"] = 10, ["Jeysen_Prado"] = 10, ["Maxim_Kudryavtsev"] = 10, ["Salvatore_Giordano"] = 10, ["Diego_Serrano"] = 10, ["Gosha_Fantom"] = 10, ["Tobey_Marshall"] = 10,
-    ["Impressive_Plitts"] = 5, ["Quentin_Qween"] = 10, ["Jayson_Frenks"] = 10, ["Danya_Korolyov"] = 10, ["Sergo_Cross"] = 10, ["Trojan_Dev"] = 10, ["Kostya_Vlasov"] = 10, ["Game_Birds"] = 10,
+    ["Impressive_Plitts"] = 6, ["Quentin_Qween"] = 10, ["Jayson_Frenks"] = 10, ["Danya_Korolyov"] = 10, ["Sergo_Cross"] = 10, ["Trojan_Dev"] = 10, ["Kostya_Vlasov"] = 10, ["Game_Birds"] = 10,
     ["Aleksey_Efimenko"] = 5, ["Test_Evlv"] = 8, ["Domenick_Jackson"] = 8,
     ["Homka_Daxwell"] = 5,
     ["Fernando_Bennet"] = 6,
